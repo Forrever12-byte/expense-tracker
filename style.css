@@ -1,0 +1,49 @@
+#list {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+}
+
+#list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.expense-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.expense-name {
+    font-weight: 500;
+}
+
+.expense-category {
+    font-size: 16px;
+    color: #adadad;
+    text-transform: capitalize;
+}
+
+.expense-amount {
+    font-weight: 500;
+}
+
+.delete-btn {
+    padding: 4px 10px;
+    cursor: pointer;
+    outline: 1px solid rgb(155, 154, 154);
+    border-radius: 10px;
+}
+
+#total {
+    font-size: 20px;
+    font-weight: 500;
+    padding: 12px;
+    background: #f4f4f4;
+    border-radius: 8px;
+    color: black;
+}
