@@ -7,26 +7,45 @@
     <link rel="stylesheet" href="style.css">
     <title>Expense Tracker</title>
 </head>
-<body class="bg-black text-white p-5">
+<body class="bg-black text-white p-5 md:p-10 lg:px-20">
     <h1 class="text-3xl font-semibold mb-8">Expense Tracker</h1>
 
-    <form id="form" class="flex flex-col gap-4">
-        <div class="flex flex-col gap-2">
-            <label for="expenseName" class="mb-2 text-white/80">Expense</label>
-            <input type="text" id="expenseName" name="expenseName" placeholder="Enter Expense Name" class="px-3 py-2 border border-white/50 rounded-lg">
-        </div>
-
-        <div class="flex gap-3 justify-between w-full">
-
-            <div class="flex flex-col w-[50%]">
-                <label for="expenseAmount" class="mb-2 text-white/80">Amount</label>
-                <input type="number" id="expenseAmount" name="expenseAmount" placeholder="Enter Amount" class="px-3 py-2 border border-white/50 rounded-lg">
+    <div class="lg:w-full lg:flex gap-5">
+        <form id="form" class="flex flex-col md:flex-row lg:flex-col gap-4 lg:w-[30%] lg:min-h-[60vh] lg:border lg:rounded-lg lg:px-3 lg:py-8">
+            <div class="flex flex-col gap-2 md:w-[50%] lg:w-full">
+                <label for="expenseName" class="mb-2 text-white/80 md:hidden">Expense</label>
+                <input type="text" id="expenseName" name="expenseName" placeholder="Enter Expense Name" class="px-3 py-2 border border-white/50 rounded-lg">
             </div>
 
-            <!-- Categories -->
-            <div class="flex flex-col w-[50%]">
-                <label for="categories" class="mb-2 text-white/80">Category</label>
-                <select name="categories" id="categories" class="px-3 py-2 border border-white/50 rounded-lg">
+            <div class="flex gap-3 w-full md:w-auto lg:flex-col">
+
+                <div class="flex flex-col w-[50%] md:w-auto lg:w-full">
+                    <label for="expenseAmount" class="mb-2 text-white/80 md:hidden">Amount</label>
+                    <input type="number" id="expenseAmount" name="expenseAmount" placeholder="Enter Amount" class="px-3 py-2 border border-white/50 rounded-lg">
+                </div>
+
+                <!-- Categories -->
+                <div class="flex flex-col w-[50%] md:w-auto lg:w-full">
+                    <label for="categories" class="mb-2 text-white/80 md:hidden">Category</label>
+                    <select name="categories" id="categories" class="px-3 py-2 border border-white/50 rounded-lg">
+                        <option value="feeding" class="bg-black">Feeding</option>
+                        <option value="transportation" class="bg-black">Transportation</option>
+                        <option value="internet" class="bg-black">Internet</option>
+                        <option value="rent" class="bg-black">Rent</option>
+                        <option value="miscellaneous" class="bg-black">Miscellaneous</option>
+                    </select>
+                </div>
+
+            </div>  
+
+            <button id="addExpense" class="py-2 bg-white text-black rounded-lg font-semibold mb-5 md:w-[20%] lg:w-full">Add Expense</button>
+        </form>
+
+        <!-- Filter -->
+        <div class="lg:w-[70%]">
+            <div class="flex justify-end">
+                <select name="filter" id="filter" class="px-3 py-2 border border-white/50 rounded-lg md:w-[30%]">
+                    <option value="all" class="bg-black">All</option>
                     <option value="feeding" class="bg-black">Feeding</option>
                     <option value="transportation" class="bg-black">Transportation</option>
                     <option value="internet" class="bg-black">Internet</option>
@@ -35,26 +54,13 @@
                 </select>
             </div>
 
+            <ul id="list" class="mt-15 h-[20vh] md:h-[60vh] border rounded-lg overflow-y-auto">
+
+            </ul>
+
+            <p id="total" class="lg:block"></p>
         </div>
-
-        <button id="addExpense" class="py-2 bg-white text-black rounded-lg font-semibold mb-5">Add Expense</button>
-    </form>
-
-    <!-- Filter -->
-    <select name="filter" id="filter" class="px-3 py-2 border border-white/50 rounded-lg">
-        <option value="all" class="bg-black">All</option>
-        <option value="feeding" class="bg-black">Feeding</option>
-        <option value="transportation" class="bg-black">Transportation</option>
-        <option value="internet" class="bg-black">Internet</option>
-        <option value="rent" class="bg-black">Rent</option>
-        <option value="miscellaneous" class="bg-black">Miscellaneous</option>
-    </select>
-
-    <ul id="list" class="mt-15">
-
-    </ul>
-
-    <p id="total"></p>
+    </div>
 
     <script src="index.js"></script>
 </body>
