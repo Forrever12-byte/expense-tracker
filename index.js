@@ -1,4 +1,4 @@
-let expenses = [];
+let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
 
 const list = document.getElementById("list");
 const total = document.getElementById("total");
@@ -8,6 +8,10 @@ const expenseAmount = document.getElementById("expenseAmount");
 const categorySelect = document.getElementById("categories");
 const filterSelect = document.getElementById("filter");
 let selectedCategory = "all"
+
+function saveExpenses() {
+    localStorage.setItem("expenses", JSON.stringify(expenses));
+}
 
 function render() {
     list.innerHTML = "";
@@ -45,6 +49,8 @@ function render() {
 
             expenses = expenses.filter(expense => expense.id !== id);
 
+            saveExpenses();
+
             render();
 
        })
@@ -78,6 +84,8 @@ form.addEventListener('submit', (e) => {
     const newObject = {id: Date.now(), name: expense, amount: amount, category: category};
 
     expenses.push(newObject);
+
+    saveExpenses(); 
 
     render();
 
